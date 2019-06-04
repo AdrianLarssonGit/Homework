@@ -33,12 +33,8 @@ public class Phonebook {
 
     public void addNrAndNewPerson(Person person) {
 
-        if (this.phoneBook.isEmpty()) {
             this.phoneBook.add(person);
 
-        } else {
-            this.phoneBook.add(person);
-        }
 
     }
 
@@ -84,12 +80,9 @@ public class Phonebook {
     }
 
     public void addAddressExistingPerson(String name, String addressString) {
-        int index = 0;
-
-        //Add them all to this list, clear the old list. 
-        ArrayList<String> tempNr = new ArrayList<String>();
-
+        
         //Finding index of name we want to update. 
+         int index = 0;
         for (Person p : phoneBook) {
             if (p.getName().equals(name)) {
                 break;
@@ -97,16 +90,15 @@ public class Phonebook {
             index++;
         }
 
-        //Add all old nrs to new list. 
-        for (int i = 0; i < phoneBook.get(index).getAdress().size(); i++) {
-            tempNr.add(phoneBook.get(index).getAdress().get(i));
-        }
+        
+        //Add them all to this list, clear the old list. 
+        ArrayList<String> tempNr = new ArrayList<String>(phoneBook.get(index).getAdress());
 
         //Adding new nr
         tempNr.add(addressString);
 
         //Clearing old list
-        phoneBook.get(index).clearList();
+        phoneBook.get(index).clearAdress();
 
         //Sending the new list to person object. 
         phoneBook.get(index).addAdresses(tempNr);
@@ -156,6 +148,8 @@ public class Phonebook {
     public void getInformation(String name) {
         //First test to see if person is in the phonebook at all
         //if not we print "not found"
+        
+        
 
         int trigg = 0;
         for (Person p : phoneBook) {
@@ -179,33 +173,43 @@ public class Phonebook {
                 }
                 index++;
             }
+ 
             if (phoneBook.get(index).getAdress().isEmpty()) {
 
                 System.out.println("  address unknown");
 
             } else {
+                
+                for(Person p : phoneBook){
+                    
+                
 
                 System.out.print("  adress: ");
+                
                 for (int i = 0; i < phoneBook.get(index).getAdress().size(); i++) {
-                    if (i == 0) {
-                        System.out.print(phoneBook.get(index).getAdress().toString());
-                    } else {
-                        for (int x = 0; i < phoneBook.get(index).getAdress().size() - 1; i++) {
-                            System.out.print("   " + phoneBook.get(index).getNr().get(i));
+                            if(i == 0){
+                                System.out.print("" + phoneBook.get(index).getAdress().get(i));
+                            }
+                            else{
+                                System.out.print("          " + phoneBook.get(index).getAdress().get(i));
+                            }
+                            
                             System.out.println("");
-                        }
-                    }
+                     
+                    
 
+                
+            }
                 }
             }
-
+            
             System.out.println("");
             System.out.println("  phone numbers: ");
 
             int index1 = 0;
             for (Person p : phoneBook) {
                 if (p.getName().equals(name)) {
-                    //System.out.println("Pekka phone size " + p.getNr().size());
+                    
                     break;
                 }
                 index1++;
@@ -224,6 +228,7 @@ public class Phonebook {
 
         }
     }
+    
 
     public void deletePersonal(String name) {
 
