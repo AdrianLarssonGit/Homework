@@ -137,13 +137,13 @@ public class UI{
         String trash = "trash";
         
         if(!phonebook.exist(name)){
-                    Person person = new Person(name, adress, trash);
+                    Person person = new Person(name, street, city);
                    
                     phonebook.addAddressAndNewPerson(person);
                 }
                 
                 else{
-                    phonebook.addNrExistingPerson(name,adress);
+                    phonebook.addAddressExistingPerson(name,adress);
                 }
 
        
