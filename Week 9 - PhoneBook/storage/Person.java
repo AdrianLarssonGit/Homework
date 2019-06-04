@@ -26,11 +26,13 @@ public class Person{
          this.nrs.add(nr); 
     }
     
-    //Super ugly hack to diff on making person with nr and person with address
-    public Person(String name, String address, String trash){
+    
+    public Person(String name, String street, String city){
+        String adressToBeAdded = street + " " + city; 
+        this.adress.add(adressToBeAdded);
         this.name = name;
-        this.adress.add(address);
         this.trash = trash;
+        
     }
 
     public Person(String name){
