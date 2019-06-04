@@ -49,7 +49,7 @@ public class Phonebook {
     public void addNrExistingPerson(String name, String nrString) {
         int index = 0;
 
-        //Add them all to this list, clear the old list. Why? Formating reasons.
+        //Add them all to this list, clear the old list.
         ArrayList<String> tempNr = new ArrayList<String>();
 
         //Finding index of name we want to update. 
@@ -95,7 +95,7 @@ public class Phonebook {
     public void addAddressExistingPerson(String name, String addressString){
          int index = 0;
 
-        //Add them all to this list, clear the old list. Why? Formating reasons.
+        //Add them all to this list, clear the old list. 
         ArrayList<String> tempNr = new ArrayList<String>();
 
         //Finding index of name we want to update. 
@@ -130,7 +130,7 @@ public class Phonebook {
     public void searchByName(String person) {
 
         int triggerd = 0; //If this is one we have found a match and will not 
-                            //print error message
+                            //print not found message
         for (Person p : this.phoneBook) {
             if (p.getName().equals(person)) {
                 for (int i = 0; i < p.getNr().size(); i++) {
@@ -256,7 +256,7 @@ public class Phonebook {
     }
     
     public void deletePersonal(String name){
-        //System.out.println("name " + name);
+       
         for(Person p : phoneBook){
             if(p.getName().equals(name)){
                p.clearAdress();
@@ -281,7 +281,7 @@ public class Phonebook {
         //Name, nr and adress and print all fields of person object if match
         
         if(searchTerm.isEmpty()){
-            //System.out.println(phoneBook.toString());
+            
             for(Person p : phoneBook){
                 
       
@@ -327,8 +327,6 @@ public class Phonebook {
                
 
         //Search name and if match print person object.
-        //int triggerd = 0; //If this is one we have found a match and will not 
-                            //print error message
                             int thetracker = 0;
                             
         for (Person p : this.phoneBook) {
@@ -344,7 +342,7 @@ public class Phonebook {
                 else{
                     System.out.print("  address:");
                     for (int i = 0; i < p.getAdress().size(); i++) { 
-                    System.out.println(" " + p.getAdress().get(i).toString());
+                    System.out.println(" " + p.getAdress().get(i));
                 }
                 }
                 
