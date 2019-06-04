@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import storage.Person;
@@ -130,12 +129,7 @@ public class UI{
         
         System.out.print("city: ");
         String city = scanner.nextLine();
-        
-        
-        String adress = street + " " + city; 
-        
-        String trash = "trash";
-        
+
         if(!phonebook.exist(name)){
                     Person person = new Person(name, street, city);
                    
@@ -143,7 +137,7 @@ public class UI{
                 }
                 
                 else{
-                    phonebook.addAddressExistingPerson(name,adress);
+                    phonebook.addAddressExistingPerson(name, street, city);
                 }
 
        
