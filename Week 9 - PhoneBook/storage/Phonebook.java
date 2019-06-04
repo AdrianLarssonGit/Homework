@@ -79,7 +79,8 @@ public class Phonebook {
 
     }
 
-    public void addAddressExistingPerson(String name, String addressString) {
+    public void addAddressExistingPerson(String name, String street, String city) {
+        String addressString = street + " " + city;
         
         //Finding index of name we want to update. 
          int index = 0;
@@ -91,17 +92,17 @@ public class Phonebook {
         }
 
         
-        //Add them all to this list, clear the old list. 
-        ArrayList<String> tempNr = new ArrayList<String>(phoneBook.get(index).getAdress());
+        //Add all addresses to tempList
+        ArrayList<String> tempList = new ArrayList<String>(phoneBook.get(index).getAdress());
 
         //Adding new nr
-        tempNr.add(addressString);
+        tempList.add(addressString);
 
         //Clearing old list
         phoneBook.get(index).clearAdress();
 
         //Sending the new list to person object. 
-        phoneBook.get(index).addAdresses(tempNr);
+        phoneBook.get(index).addAdresses(tempList);
 
     }
 
